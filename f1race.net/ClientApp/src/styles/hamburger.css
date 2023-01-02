@@ -1,0 +1,45 @@
+.hamburger {
+  @apply stroke-white transition-colors duration-500;
+
+  & > .line {
+    @apply fill-none stroke-[3px] transition-all duration-500 ease-in-out;
+    stroke-dashoffset: 0;
+
+    &#line1 {
+      stroke-dasharray: 24 90.63;
+    }
+
+    &#line2 {
+      stroke-dasharray: 24 24;
+    }
+
+    &#line3 {
+      stroke-dasharray: 24 90.63;
+    }
+  }
+
+  &.opened {
+
+    @apply stroke-race-red;
+
+    & > #line1 {
+      stroke-dasharray: 30 90.58;
+      stroke-dashoffset: -60.5;
+    }
+
+    & > #line2 {
+      stroke-dasharray: 1 24;
+      stroke-dashoffset: -12;
+    }
+
+    & > #line3 {
+      stroke-dasharray: 30 90.58;
+      stroke-dashoffset: -60.5;
+    }
+  }
+}
+
+.line3 {
+  stroke-dasharray: 24 90.63;
+  stroke-dashoffset: 0;
+}

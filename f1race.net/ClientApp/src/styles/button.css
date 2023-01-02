@@ -1,0 +1,57 @@
+.btn {
+  .hover {
+    @apply rounded-3xl border-transparent border-black bg-black text-white dark:border-transparent dark:bg-white dark:text-black;
+  }
+
+  @apply focus-visible-offset never-underline flex min-w-[5rem] flex-row flex-nowrap items-center justify-center rounded border-2 border-transparent bg-gray-700 px-4 py-3 font-f1 text-[0.67rem] font-normal uppercase leading-[0.67rem] tracking-wider text-white transition-all duration-200 active:bg-gray-600 dark:bg-gray-200 dark:text-black dark:active:bg-gray-300;
+
+  &:hover,
+  &:focus-visible,
+  &.selected {
+    @extend .hover;
+  }
+
+  &:disabled {
+    @apply bg-gray-500 dark:bg-gray-400 pointer-events-none opacity-25;
+  }
+
+  &.btn-outline {
+    .hover {
+      @apply bg-black text-white dark:border-white dark:bg-white dark:text-black;
+    }
+
+    @apply border-black bg-transparent text-black active:bg-gray-700 dark:border-white dark:text-white dark:active:bg-gray-300;
+
+    &.muted {
+      .hover {
+        @apply rounded-3xl bg-gray-300 dark:bg-gray-600;
+      }
+
+      @apply border-gray-300 text-black active:bg-gray-200 dark:border-gray-600 dark:text-white dark:active:bg-gray-700;
+    }
+  }
+
+  &.btn-primary {
+    .hover {
+      @apply bg-white text-black dark:bg-gray-800 dark:text-white;
+    }
+
+    @apply border-race-red bg-race-red text-white;
+  }
+}
+
+.nav-btn {
+  @apply focus-visible-offset-dark never-underline relative flex h-full flex-col items-center justify-center p-3 font-f1 font-bold tracking-wider text-gray-400 transition-all duration-200 before:absolute before:top-0 before:h-0.5 before:w-0 before:rounded-b before:transition-all before:duration-200 focus-visible:bg-race-red focus-visible:text-white hover:text-white;
+
+  &.active {
+    @apply text-white before:top-2.5 before:h-1.5 before:w-1.5 before:rounded before:bg-race-red;
+  }
+
+  &.active:hover {
+    @apply before:w-6;
+  }
+
+  &:hover:not(.active) {
+    @apply translate-y-0.5 text-white before:top-0 before:h-1 before:w-full before:-translate-y-0.5 before:bg-race-red;
+  }
+}

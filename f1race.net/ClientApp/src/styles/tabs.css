@@ -1,0 +1,30 @@
+@layer components {
+  .tabs {
+    @apply font-f1 h-8 flex flex-row items-end justify-start border-b-2 border-b-race-red text-sm;
+
+    li {
+      @apply items-end;
+    }
+
+    .tab {
+      @apply never-underline relative bottom-0 inline-flex shrink flex-row flex-nowrap items-center rounded-t-md border-x-0 border-gray-400 border-b-race-red bg-gray-50 px-4 py-0.5 normal-case tracking-wide text-gray-500 shadow-none transition-colors duration-300 dark:border-gray-400 dark:bg-gray-800 dark:text-gray-300;
+
+      .tab-hover {
+        @apply bg-race-red border-race-red text-white;
+      }
+
+      &:hover,
+      &:focus-visible {
+        @extend .tab-hover;
+      }
+
+      &.active {
+        @apply border-x-2 border-t-2 z-10 translate-y-[2px] text-race-red pointer-events-none border-race-red border-b-transparent py-1;
+
+        &:hover {
+          @apply bg-race-red;
+        }
+      }
+    }
+  }
+}

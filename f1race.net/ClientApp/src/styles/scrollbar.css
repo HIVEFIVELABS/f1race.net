@@ -1,0 +1,7 @@
+/* Works on Firefox */
+@layer base {
+  * {
+    @apply scrollbar-thin scrollbar-track-white scrollbar-thumb-race-red hover:scrollbar-thumb-race-red dark:scrollbar-track-gray-800 dark:scrollbar-thumb-race-red;
+    @apply overflow-visible;
+  }
+}

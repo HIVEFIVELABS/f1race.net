@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg class="hamburger" width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
+    <path class="line1" d="M12,15l24,0c7,0 9,9 9,15c0,5 -1,8 -4,8c-3,0 -6.515,-3.515 -6.515,-3.515l-20.97,-20.97"/>
+    <path class="line2" d="M12,24l24,0"/>
+    <path class="line3" d="M12,34.515l24,-0c7,-0 9,-9 9,-15c0,-5 -1,-8 -4,-8c-3,-0 -6.515,3.514 -6.515,3.514l-20.97,20.971"/>
+</svg>

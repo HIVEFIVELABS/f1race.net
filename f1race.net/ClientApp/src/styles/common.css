@@ -1,0 +1,31 @@
+@layer base {
+  hr {
+    @apply my-2 border-t border-gray-400 dark:border-gray-800;
+  }
+}
+
+@layer utilities {
+  *:focus-visible {
+    outline: none;
+  }
+
+  .focus-visible {
+    @apply focus-visible:ring-2 focus-visible:ring-ring-light;
+
+    &-offset {
+      @apply focus-visible focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black;
+
+      &-dark {
+        @apply focus-visible-offset focus-visible:ring-offset-black;
+      }
+    }
+  }
+
+  .bg-default {
+    @apply bg-gray-50 dark:bg-gray-800;
+  }
+
+  .never-underline {
+    @apply no-underline focus:no-underline focus-visible:no-underline hover:no-underline;
+  }
+}

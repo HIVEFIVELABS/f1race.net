@@ -1,0 +1,102 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+@import "styles/common.css";
+@import "styles/scrollbar.css";
+@import "styles/rings.css";
+@import "styles/icons.css";
+@import "styles/hamburger.css";
+@import "styles/loadingCircle.css";
+
+@import "styles/input.css";
+@import "styles/button.css";
+@import "styles/menu.css";
+@import "styles/tabs.css";
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet');
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+
+@import "tailwindcss/utilities";
+
+@layer base {
+  @font-face {
+    font-family: "Formula1";
+    font-weight: 400;
+    src: url("/fonts/Formula1-Regular_web.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Formula1";
+    font-weight: 700;
+    src: url("/fonts/Formula1-Bold_web.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Formula1";
+    font-weight: 900;
+    src: url("/fonts/Formula1-Wide_web.ttf") format("truetype");
+  }
+
+  :root {
+    color-scheme: light dark;
+
+    @apply bg-default font-sans text-base font-light text-black antialiased dark:text-white;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  html {
+    @apply h-full min-h-full;
+  }
+
+  #root {
+    @apply flex min-h-screen w-full flex-col;
+  }
+
+  a {
+    @apply font-medium text-race-red underline-offset-4 hover:underline;
+  }
+
+  body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-f1 tracking-normal text-black dark:text-white;
+  }
+
+  h1 {
+    @apply text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl;
+  }
+
+  h3 {
+    @apply text-2xl;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+
+  h5 {
+    @apply text-lg;
+  }
+
+  h6 {
+    @apply text-base;
+  }
+}

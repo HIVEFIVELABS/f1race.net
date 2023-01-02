@@ -1,0 +1,9 @@
+@layer utilities {
+  .offset-ring {
+    @apply ring-2 ring-ring-light ring-offset-2 ring-offset-white dark:ring-offset-black;
+    
+    &-dark {
+      @apply ring-offset-black;
+    }
+  }
+}

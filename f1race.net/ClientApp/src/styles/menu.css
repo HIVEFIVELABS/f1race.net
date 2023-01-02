@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+
+@layer components {
+  .menu {
+    .menu-item {
+      .menu-item-hover {
+        @apply rounded bg-race-red text-white shadow-lg shadow-race-red/50;
+      }
+
+      @apply never-underline block flex flex-row flex-nowrap items-center border border-transparent px-4 py-1 font-sans normal-case tracking-wide text-black shadow-none transition-all duration-300 dark:text-gray-300;
+
+      &:hover,
+      &:focus-visible {
+        @extend .menu-item-hover;
+      }
+
+      &:focus-visible {
+        @apply offset-ring;
+      }
+    }
+  }
+
+  .submenu {
+    @extend .menu;
+
+    @apply ml-3 text-sm;
+
+    .menu-item {
+      @apply border-0 border-l border-l-gray-300 tracking-normal text-gray-500 hover:border-transparent dark:border-l-gray-600 dark:text-gray-400;
+    }
+  }
+}
