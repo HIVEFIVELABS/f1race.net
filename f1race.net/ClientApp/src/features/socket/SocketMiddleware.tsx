@@ -1,4 +1,4 @@
-// Path: frontend/src/features/socket/SocketMiddleware.tsx
+// Path: ClientApp/src/features/socket/SocketMiddleware.tsx
 
 import { Middleware } from "redux";
 import io from "socket.io-client";
@@ -21,13 +21,17 @@ export const socketMiddleware: Middleware = (store) => {
       !authorizedConnection?.isConnected;
 
     if (startConnection.match(action) && canStartConnection) {
-      let socket = io(process.env.VITE_WS_HOST);
-      socket.on("connect", () => {
-        store.dispatch(connectionEstablished(socket.id));
-      });
-      socket.on("disconnect", () => {
-        store.dispatch(stopConnection());
-      });
+      const wsHost: string = process.env.VITE_WS_HOST ?? "";
+
+      if (Boolean(wsHost)) {
+        let socket = io(wsHost);
+        socket.on("connect", () => {
+          store.dispatch(connectionEstablished(socket.id));
+        });
+        socket.on("disconnect", () => {
+          store.dispatch(stopConnection());
+        });
+      }
     }
 
     if (

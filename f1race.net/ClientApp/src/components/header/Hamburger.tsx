@@ -1,8 +1,12 @@
 // Hamburger.jsx
 
-import React, { useState } from "react";
+import React from "react";
 
-const Hamburger = ({ opened }) => {
+type Props = {
+  opened: boolean;
+};
+
+const Hamburger = ({ opened }: Props) => {
   return (
     <svg
       className={opened ? "hamburger opened" : "hamburger"}

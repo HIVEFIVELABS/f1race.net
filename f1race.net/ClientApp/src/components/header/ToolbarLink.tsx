@@ -1,18 +1,28 @@
 // ToolbarLink.jsx
 
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const ToolbarLink = ({className, children, ...rest}) => {
-  const classNames = [
-    "btn flex flex-row flex-nowrap items-center justify-center whitespace-nowrap",
-    className,
-  ]
-    .join(" ")
-    .trim();
+type Props = {
+  to: string;
+  className?: string;
+  children?: React.ReactNode;
+  state?: any;
+};
 
+const ToolbarLink = ({ to, state, className, children, ...rest }: Props) => {
   return (
-    <Link className={classNames} {...rest}>
+    <Link
+      to={to}
+      state={state}
+      className={[
+        "btn flex flex-row flex-nowrap items-center justify-center whitespace-nowrap",
+        className,
+      ]
+        .join(" ")
+        .trim()}
+      {...rest}
+    >
       {children}
     </Link>
   );

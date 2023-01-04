@@ -2,7 +2,11 @@
 
 import React from "react";
 
-export const LoadingCircle = ({ className, ...rest }) => {
+type Props = {
+  className?: string;
+};
+
+export const LoadingCircle = ({ className, ...rest }: Props) => {
   return (
     <div
       id="loader"

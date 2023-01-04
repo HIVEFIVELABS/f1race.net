@@ -1,10 +1,9 @@
-// Path: frontend/src//screens/admin/DriversScreen.jsx
+// Path: ClientApp/src//screens/admin/DriversScreen.jsx
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useSocketIO } from "../../../features/socket/SocketContext.jsx";
 import LoadingCircle from "../../../components/images/LoadingCircle.jsx";
-import StoreState from "../../../StoreState";
+import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
 
 type ScrapeInfo = {
   message: string;
@@ -16,12 +15,12 @@ type ScrapeData = {
 
 const DriversScreen = () => {
   const [isScraping, setIsScraping] = useState(false);
-  const { user } = useSelector((state: StoreState) => state.auth);
+  const { user } = useAppSelector((state) => state.auth);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const io = useSocketIO();
 
-  const logElement = useRef<HTMLDivElement | null>();
+  const logElement = useRef<HTMLDivElement>(null);
 
   const setLogText = useCallback(
     (text: string) => {
@@ -73,21 +72,23 @@ const DriversScreen = () => {
   }, [io]);
 
   const handleClickSyncStatsF1 = useCallback(() => {
-    io.adminSocket.emit("syncStatsF1");
-    console.log("syncStatsF1");
-    // dispatch(scrapeDrivers({ source: "statsF1" }));
+    if (io?.adminSocket) {
+      io.adminSocket.emit("syncStatsF1");
+      console.log("syncStatsF1");
+      // dispatch(scrapeDrivers({ source: "statsF1" }));
+    }
   }, []);
 
   return (
     <>
       <h2>Drivers</h2>
-      {user.isAdmin && (
+      {user?.isAdmin && (
         <section id="admin-section" className="mt-2">
           <div id="sync-buttons" className="flex flex-row">
             <button
               className="btn"
               onClick={handleClickSyncStatsF1}
-              disabled={!io.adminSocket?.connected || isScraping}
+              disabled={!io?.adminSocket?.connected || isScraping}
             >
               {
                 <div className="relative">
@@ -116,7 +117,7 @@ const DriversScreen = () => {
           <div id="log-container" className="mt-2 text-xs italic text-gray-400">
             <div>
               Connection status:&nbsp;
-              {io.adminSocket?.connected ? (
+              {io?.adminSocket?.connected ? (
                 <span className="not-italic text-green-600 dark:text-green-400">
                   Ready
                 </span>

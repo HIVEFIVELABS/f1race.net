@@ -1,4 +1,4 @@
-// PATH: frontend/src/features/socket/socketSlice.tsx
+// Path: ClientApp/src/features/socket/socketSlice.tsx
 
 import { createSlice } from "@reduxjs/toolkit";
 
@@ -9,10 +9,10 @@ export interface SocketConnectionState {
   error: string | null;
 }
 
-export interface SocketState {
+export type SocketState = {
   connection: SocketConnectionState | null;
   authorizedConnection: SocketConnectionState | null;
-}
+};
 
 const initialState: SocketState = {
   connection: {
@@ -34,30 +34,42 @@ export const socketSlice = createSlice({
   initialState,
   reducers: {
     startConnection: (state) => {
-      state.connection.isEstablishingConnection = true;
+      if (state.connection) {
+        state.connection.isEstablishingConnection = true;
+      }
     },
     connectionEstablished: (state, action) => {
-      state.connection.isEstablishingConnection = false;
-      state.connection.isConnected = true;
-      state.connection.socketID = action.payload;
+      if (state.connection) {
+        state.connection.isEstablishingConnection = false;
+        state.connection.isConnected = true;
+        state.connection.socketID = action.payload;
+      }
     },
     stopConnection: (state) => {
-      state.connection.isEstablishingConnection = false;
-      state.connection.isConnected = false;
-      state.connection.socketID = null;
+      if (state.connection) {
+        state.connection.isEstablishingConnection = false;
+        state.connection.isConnected = false;
+        state.connection.socketID = null;
+      }
     },
     startAuthorizedConnection: (state) => {
-      state.authorizedConnection.isEstablishingConnection = true;
+      if (state.authorizedConnection) {
+        state.authorizedConnection.isEstablishingConnection = true;
+      }
     },
     authorizedConnectionEstablished: (state, action) => {
-      state.authorizedConnection.isEstablishingConnection = false;
-      state.authorizedConnection.isConnected = true;
-      state.authorizedConnection.socketID = action.payload;
+      if (state.authorizedConnection) {
+        state.authorizedConnection.isEstablishingConnection = false;
+        state.authorizedConnection.isConnected = true;
+        state.authorizedConnection.socketID = action.payload;
+      }
     },
     stopAuthorizedConnection: (state) => {
-      state.authorizedConnection.isEstablishingConnection = false;
-      state.authorizedConnection.isConnected = false;
-      state.authorizedConnection.socketID = null;
+      if (state.authorizedConnection) {
+        state.authorizedConnection.isEstablishingConnection = false;
+        state.authorizedConnection.isConnected = false;
+        state.authorizedConnection.socketID = null;
+      }
     },
   },
 });

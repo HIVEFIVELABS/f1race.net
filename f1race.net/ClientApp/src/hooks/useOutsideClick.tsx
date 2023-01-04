@@ -1,13 +1,17 @@
-// useOutsideClick.jsx
+// Path: ClientApp/src/hooks/useOutsideClick.tsx
 
-import React, { useEffect, useRef } from "react";
+import React, { ReactNode, useEffect, useRef } from "react";
 
-export const useOutsideClick = (callback) => {
-  const ref = useRef();
+export const useOutsideClick = (callback: () => void) => {
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleClick = (evt) => {
-      if (ref.current && !ref.current.contains(evt.target)) {
+    const handleClick = (evt: MouseEvent) => {
+      if (
+        evt.target instanceof Element &&
+        ref.current &&
+        !ref.current.contains(evt.target)
+      ) {
         callback();
       }
     };

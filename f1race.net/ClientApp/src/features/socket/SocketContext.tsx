@@ -1,4 +1,4 @@
-// Path: frontend/src/features/socket/SocketContext.tsx
+// Path: ClientApp/src/features/socket/SocketContext.tsx
 
 import React, {
   createContext,
@@ -35,8 +35,12 @@ const initialState: SocketState = {
 
 const SocketContext = createContext<SocketState | null>(initialState);
 
-export const SocketProvider = ({children}) => {
-  const {userToken} = useUserContext();
+type Props = {
+  children?: React.ReactNode;
+};
+
+export const SocketProvider = ({ children }: Props) => {
+  const { userToken } = useUserContext();
 
   const [wsState, setWsState] = React.useState<SocketState>(initialState);
 
@@ -48,12 +52,12 @@ export const SocketProvider = ({children}) => {
 
     socket.on("connect", () => {
       console.log("Socket connected");
-      setWsState((prev) => ({...prev, socket}));
+      setWsState((prev) => ({ ...prev, socket }));
     });
 
     socket.on("disconnect", () => {
       console.log("Socket disconnected");
-      setWsState((prev) => ({...prev, socket: null}));
+      setWsState((prev) => ({ ...prev, socket: null }));
     });
 
     return () => {
@@ -75,12 +79,12 @@ export const SocketProvider = ({children}) => {
 
       adminSocket.on("connect", () => {
         console.log("Admin socket connected");
-        setWsState((prev) => ({...prev, adminSocket}));
+        setWsState((prev) => ({ ...prev, adminSocket }));
       });
 
       adminSocket.on("disconnect", () => {
         console.log("Admin socket disconnected");
-        setWsState((prev) => ({...prev, adminSocket: null}));
+        setWsState((prev) => ({ ...prev, adminSocket: null }));
       });
     }
 
@@ -90,7 +94,7 @@ export const SocketProvider = ({children}) => {
   }, [userToken]);
 
   return (
-      <SocketContext.Provider value={wsState}>{children}</SocketContext.Provider>
+    <SocketContext.Provider value={wsState}>{children}</SocketContext.Provider>
   );
 };
 

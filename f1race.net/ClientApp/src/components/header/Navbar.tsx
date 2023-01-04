@@ -1,14 +1,16 @@
 // Navbar.jsx
 
-import React, {useEffect, useState} from "react";
-import {Link, useLocation} from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import NavbarLink from "./NavbarLink.jsx";
 import Hamburger from "./Hamburger.jsx";
 import Logo from "./Logo";
 
+type LocationState = string | null;
+
 const Navbar = () => {
   const [hamburgerOpened, setHamburgerOpened] = useState(false);
-  const [lastLocation, setLastLocation] = useState(null);
+  const [lastLocation, setLastLocation] = useState<LocationState>(null);
 
   const location = useLocation();
 
@@ -32,10 +34,10 @@ const Navbar = () => {
         onClick={toggleHamburgerMenu}
         className="mr-4 block self-center md:hidden"
       >
-        <Hamburger opened={hamburgerOpened}/>
+        <Hamburger opened={hamburgerOpened} />
       </Link>
       <Link className="focus-visible-offset-dark my-5 mr-8" to="/">
-        <Logo className="logo h-[24px]" alt="f1race.net logo"/>
+        <Logo className="logo h-[24px]" />
       </Link>
       <ul className="hidden flex-row items-stretch md:flex">
         <li>

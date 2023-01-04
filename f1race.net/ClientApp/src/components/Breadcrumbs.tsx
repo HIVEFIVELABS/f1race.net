@@ -1,14 +1,24 @@
-// Breadcrumbs.jsx
+// Path: ClientApp/src/components/Breadcrumbs.tsx
 
 import React from "react";
 import { useMatches } from "react-router-dom";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 
+interface Match {
+  handle: {
+    crumb: any;
+  };
+}
+
+const hasCrumb = (match: any): match is Match => {
+  return match && match.handle && match.handle.crumb;
+};
+
 const Breadcrumbs = () => {
   const matches = useMatches();
   const crumbs = matches
-    .filter((match) => Boolean(match.handle?.crumb))
-    .map((match) => match.handle?.crumb(match.data));
+    .filter((match) => hasCrumb(match))
+    .map((match) => (match as Match)?.handle.crumb(match.data));
 
   return (
     <ol className="flex flex-row text-sm">

@@ -5,7 +5,14 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useLoggedUserDropdownMenuContext } from "../../features/ui/loggedUserDropdownMenu/LoggedUserDropdownMenuContext.jsx";
 
-const DropdownLink = ({ to, onClick, iconElement, text, ...rest }) => {
+type Props = {
+  to: string;
+  onClick?: () => void;
+  iconElement?: React.ReactElement;
+  text: string;
+};
+
+const DropdownLink = ({ to, onClick, iconElement, text, ...rest }: Props) => {
   const dropdownMenu = useLoggedUserDropdownMenuContext();
 
   if (iconElement) {

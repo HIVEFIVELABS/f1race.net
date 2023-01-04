@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b654d0e2-ccf7-49b9-96b4-958f430d057f" name="Changes" comment="..." />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2JmrlWxENXfjRDS1cs5JnxHwDPO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/jirid/RiderProjects/f1race.net",
+    "nodejs_package_manager_path": "yarn",
+    "ts.external.directory.path": "C:\\Users\\jirid\\RiderProjects\\f1race.net\\f1race.net\\ClientApp\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b654d0e2-ccf7-49b9-96b4-958f430d057f" name="Changes" comment="" />
+      <created>1672694250987</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1672694250987</updated>
+      <workItem from="1672694252054" duration="244000" />
+    </task>
+    <task id="LOCAL-00001" summary="...">
+      <created>1672694417755</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1672694417755</updated>
+    </task>
+    <task id="LOCAL-00002" summary="...">
+      <created>1672694433950</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1672694433950</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/f1race.net/ClientApp/vite.config.js" />
+        <option value="$PROJECT_DIR$/f1race.net/ClientApp/vite.config.d.ts" />
+        <option value="$PROJECT_DIR$/f1race.net/ClientApp/src/features/scrape/scrapeSlice.jsx" />
+        <option value="$PROJECT_DIR$/f1race.net/ClientApp/src/features/scrape/scrapeSlice.jsx.map" />
+        <option value="$PROJECT_DIR$/f1race.net/ClientApp/src/features/socket/SocketContext.jsx" />
+        <option value="$PROJECT_DIR$/f1race.net/ClientApp/src/features/socket/SocketContext.jsx.map" />
+        <option value="$PROJECT_DIR$/f1race.net/ClientApp/src/features/socket/socketSlice.jsx" />
+        <option value="$PROJECT_DIR$/f1race.net/ClientApp/src/features/socket/socketSlice.jsx.map" />
+        <option value="$PROJECT_DIR$/f1race.net/ClientApp/src/screens/admin/paddock/DriversScreen.jsx" />
+        <option value="$PROJECT_DIR$/f1race.net/ClientApp/src/screens/admin/paddock/DriversScreen.jsx.map" />
+        <option value="$PROJECT_DIR$/f1race.net/ClientApp/src/features/socket/SocketMiddleware.jsx" />
+        <option value="$PROJECT_DIR$/f1race.net/ClientApp/src/features/socket/SocketMiddleware.jsx.map" />
+        <option value="$PROJECT_DIR$/f1race.net/ClientApp/src/main.jsx" />
+        <option value="$PROJECT_DIR$/f1race.net/ClientApp/src/App.jsx" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="..." />
+    <option name="LAST_COMMIT_MESSAGE" value="..." />
+  </component>
+</project>

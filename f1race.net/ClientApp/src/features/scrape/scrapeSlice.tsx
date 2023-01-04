@@ -1,7 +1,8 @@
 // Path: frontend/src/features/scrape/scrapeSlice.jsx
 
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import ScrapeService from "./ScrapeService.jsx";
+import ScrapeService from "./scrapeService";
+import axios from "axios";
 
 type ScrapeArgs = {
   source: string;
@@ -18,8 +19,9 @@ export const scrapeDrivers = createAsyncThunk<
     let response = await ScrapeService.scrapeDrivers(source);
     return response.data;
   } catch (error) {
-    const message =
-      error.response?.data?.message || error.message || error.toString();
+    const message = axios.isAxiosError(error)
+      ? error.response?.data?.message
+      : (error as Error)?.message ?? (error as string) ?? "Unknown error";
     return rejectWithValue(message);
   }
 });

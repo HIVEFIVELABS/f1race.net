@@ -2,11 +2,11 @@
 
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
 import UserLoginPanel from "./UserLoginPanel";
+import { useAppSelector } from "../../hooks/hooks";
 
 const TopToolbar = () => {
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useAppSelector((state) => state.auth);
   const { pathname } = useLocation();
 
   return (

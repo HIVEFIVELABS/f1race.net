@@ -3,7 +3,12 @@
 import React from "react";
 import LayoutContainer from "../LayoutContainer.jsx";
 
-const ToolbarPanel = ({ children, className }) => (
+type Props = {
+  className?: string;
+  children?: React.ReactNode;
+};
+
+const ToolbarPanel = ({ children, className }: Props) => (
   <div className={["", className].join(" ").trim()}>
     <LayoutContainer>{children}</LayoutContainer>
   </div>

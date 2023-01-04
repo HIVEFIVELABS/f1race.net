@@ -1,4 +1,4 @@
-// messageSlice.jsx
+// Path: ClientApp/src/features/messageSlice.jsx
 
 import { createSlice } from "@reduxjs/toolkit";
 

@@ -1,41 +1,45 @@
 // Path: frontend/src/features/auth/UserContext.js
 
 import React, { createContext, useContext, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { parseJson } from "../../utils/jsonUtils";
-import { getUserInfo, logout } from "./authSlice";
+import { getUserInfo, logout, UserState } from "./authSlice";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 
-const UserContext = createContext({
+const UserContext = createContext<UserState>({
+  loading: false,
   user: null,
-  userToken: null,
   error: null,
+  success: false,
+  userToken: null,
 });
 
-export const UserContextProvider = ({ children }) => {
-  const { user, userToken, error } = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
+type Props = {
+  children?: React.ReactNode;
+};
+
+export const UserContextProvider = ({ children }: Props) => {
+  const userState: UserState = useAppSelector((state) => state.auth);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const err = parseJson(error, error);
+    const err = parseJson(userState.error, {});
     if (err?.getUserInfo) {
       // Logout user if getUserInfo fails
       console.log(`Logging out because: ${err.getUserInfo}`);
       dispatch(logout());
     }
-  }, [error]);
+  }, [userState.error]);
 
   useEffect(() => {
-    if (userToken) {
+    if (userState.userToken) {
       // Getting user info from backend
-      console.log(`Getting user info from backend: ${userToken}`);
+      console.log(`Getting user info from backend: ${userState.userToken}`);
       dispatch(getUserInfo());
     }
-  }, [userToken, dispatch]);
+  }, [userState.userToken, dispatch]);
 
   return (
-    <UserContext.Provider value={{ user, userToken, error }}>
-      {children}
-    </UserContext.Provider>
+    <UserContext.Provider value={userState}>{children}</UserContext.Provider>
   );
 };
 
