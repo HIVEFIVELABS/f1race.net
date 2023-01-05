@@ -1,4 +1,4 @@
-// SingleColumnSection.jsx
+// Path: ClientApp/src/components/SingleColumnSection.tsx
 
 import React from 'react';
 

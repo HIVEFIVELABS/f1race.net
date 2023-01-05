@@ -1,11 +1,11 @@
 // Profile.jsx
 
 import React from "react";
-import SingleColumnLayout from "../components/SingleColumnLayout.jsx";
-import { useSelector } from "react-redux";
+import SingleColumnLayout from "../../components/SingleColumnLayout";
+import {useAppSelector} from "../../hooks/hooks";
 
 const ProfileScreen = () => {
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useAppSelector((state) => state.auth);
 
   return (
     <SingleColumnLayout>

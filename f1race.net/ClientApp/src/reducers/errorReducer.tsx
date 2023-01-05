@@ -3,7 +3,7 @@
 import { GET_ERRORS } from "../actions/types";
 import { PayloadAction } from "@reduxjs/toolkit";
 
-type ErrorTypes = Error | string | null;
+export type ErrorTypes = Error | string | null;
 
 const initialState: ErrorTypes = null;
 

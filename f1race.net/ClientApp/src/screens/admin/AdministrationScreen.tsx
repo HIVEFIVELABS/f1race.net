@@ -2,16 +2,23 @@
 
 import React from "react";
 import AdminNavbar from "../../components/admin/AdminNavbar.jsx";
-import { NavLink, Outlet } from "react-router-dom";
+import {NavLink, Outlet, RouteObject} from "react-router-dom";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import GeneralScreen, * as generalScreen from "./general/GeneralScreen";
 import PaddockScreen, * as paddockScreen from "./paddock/PaddockScreen";
 
-const subScreens = [
+type Screen = {
+  path: string;
+  text: string;
+  element?: React.ReactNode;
+  children?: Screen[];
+}
+
+const subScreens: Screen[] = [
   {
     path: "general",
     text: "General",
-    element: <GeneralScreen />,
+    element: <GeneralScreen/>,
     children: generalScreen.subScreens,
   },
   {
@@ -31,7 +38,7 @@ const subScreens = [
   {
     path: "paddock",
     text: "Paddock",
-    element: <PaddockScreen />,
+    element: <PaddockScreen/>,
     children: paddockScreen.subScreens,
   },
   {
@@ -56,12 +63,12 @@ const subScreens = [
 
 export const createChildRoutes = () => {
   // Create routes recursively
-  const createRoutes = (screens, parentPath) => {
+  const createRoutes = (screens: Screen[], parentPath: string | null): RouteObject[] => {
     return screens.map((screen) => {
 
       const fullPath = parentPath ? `${parentPath}/${screen.path}` : screen.path;
 
-      const route = {
+      const route: RouteObject = {
         path: screen.path,
         element: screen.element,
         handle: {
@@ -89,7 +96,7 @@ const AdministrationScreen = () => {
   return (
     <>
       <header className="sticky top-0 z-50">
-        <AdminNavbar />
+        <AdminNavbar/>
       </header>
       <main className="flex min-h-full grow flex-row items-stretch">
         {/* Left Sidebar */}
@@ -100,7 +107,7 @@ const AdministrationScreen = () => {
           <nav className="w-full">
             {
               // Menu items
-              subScreens.map(({ path, text, children }) => (
+              subScreens.map(({path, text, children}) => (
                 <ul key={path} className="menu">
                   <NavLink
                     to={`/administrate/${
@@ -112,7 +119,7 @@ const AdministrationScreen = () => {
                   </NavLink>
                   {children && (
                     <ul className="submenu">
-                      {children.map(({ path: subPath, text }) => (
+                      {children.map(({path: subPath, text}) => (
                         <li key={subPath}>
                           <NavLink
                             to={`/administrate/${path}/${subPath}`}
@@ -137,11 +144,11 @@ const AdministrationScreen = () => {
         >
           {/* Breadcrumbs */}
           <div className="mb-4 flex flex-row flex-wrap">
-            <Breadcrumbs />
+            <Breadcrumbs/>
           </div>
           {/* Main Content */}
           <div id="main-content" className="flex flex-grow flex-col flex-wrap">
-            <Outlet />
+            <Outlet/>
           </div>
         </div>
 

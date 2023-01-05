@@ -33,7 +33,7 @@ const initialState: SocketState = {
   adminSocket: null,
 };
 
-const SocketContext = createContext<SocketState | null>(initialState);
+const SocketContext = createContext<SocketState>(initialState);
 
 type Props = {
   children?: React.ReactNode;
@@ -98,4 +98,4 @@ export const SocketProvider = ({ children }: Props) => {
   );
 };
 
-export const useSocketIO = () => useContext(SocketContext);
+export const useSocketIO = () => useContext<SocketState>(SocketContext);

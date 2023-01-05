@@ -2,7 +2,6 @@
 
 import React from "react";
 import { ExclamationCircleIcon } from "@heroicons/react/20/solid/index.js";
-import PropTypes from "prop-types";
 import { FieldError } from "react-hook-form";
 
 type Props = {
@@ -54,14 +53,6 @@ const Field = ({
       )}
     </div>
   );
-};
-
-Field.propTypes = {
-  autoFocus: PropTypes.bool,
-  label: PropTypes.string,
-  error: PropTypes.object,
-  className: PropTypes.string,
-  register: PropTypes.func,
 };
 
 export default Field;

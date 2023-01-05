@@ -1,4 +1,4 @@
-// LoggedUserDropdownMenuContext.jsx
+// Path: ClientApp/src/features/ui/loggedUserDropdownMenu/LoggedUserDropdownMenuContext.jsx
 
 import React, {createContext, useContext, useState} from "react";
 
@@ -10,7 +10,11 @@ const LoggedUserDropdownMenuContext = createContext({
   },
 });
 
-export const LoggedUserDropdownMenuProvider = ({children}) => {
+type Props = {
+  children?: React.ReactNode;
+};
+
+export const LoggedUserDropdownMenuProvider = ({children}: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -19,7 +23,7 @@ export const LoggedUserDropdownMenuProvider = ({children}) => {
   const hide = () => {
     setIsOpen(false);
   };
-  const {show} = () => {
+  const show = () => {
     setIsOpen(true);
   };
 

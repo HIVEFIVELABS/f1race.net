@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
 import { useLoggedUserDropdownMenuContext } from "../../features/ui/loggedUserDropdownMenu/LoggedUserDropdownMenuContext.jsx";
 
 type Props = {
@@ -38,12 +37,6 @@ const DropdownLink = ({ to, onClick, iconElement, text, ...rest }: Props) => {
       <span className="text-md">{text}</span>
     </Link>
   );
-};
-
-DropdownLink.propTypes = {
-  to: PropTypes.string,
-  onClick: PropTypes.func,
-  iconElement: PropTypes.element,
 };
 
 export default DropdownLink;
