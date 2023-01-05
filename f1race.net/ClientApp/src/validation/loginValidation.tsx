@@ -11,8 +11,12 @@ const validationSchema = Yup.object().shape({
     .test(
       "len",
       "The password must be between 6 and 40 characters.",
-      (val) =>
-        val && val.toString().length >= 6 && val.toString().length <= 40
+      (val, a) => {
+        if (typeof val === "string") {
+          return val && val.toString().length >= 6 && val.toString().length <= 40;
+        }
+        return false;
+      }
     )
 });
 

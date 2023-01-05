@@ -1,20 +1,26 @@
-// Path: ClientApp/src/reducers/errorReducer.tsx
+// Path: ClientApp/src/features/errorSlice.jsx
 
-import { GET_ERRORS } from "../actions/types";
-import { PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-export type ErrorTypes = Error | string | null;
+type ErrorState = {
+  error: any;
+};
 
-const initialState: ErrorTypes = null;
+const initialState: ErrorState = {
+  error: null,
+};
 
-export default function (
-  state = initialState,
-  action: PayloadAction<ErrorTypes>
-) {
-  switch (action.type) {
-    case GET_ERRORS:
-      return action.payload;
-    default:
-      return state;
-  }
-}
+const errorSlice = createSlice({
+  name: "error",
+  initialState,
+  reducers: {
+    getErrors: (state, action) => {
+      return { error: action.payload };
+    },
+  },
+});
+
+const { reducer, actions } = errorSlice;
+
+export const { getErrors } = actions;
+export default reducer;

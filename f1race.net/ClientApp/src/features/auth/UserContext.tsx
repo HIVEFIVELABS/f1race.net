@@ -22,7 +22,7 @@ export const UserContextProvider = ({ children }: Props) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const err = parseJson(userState.error, {});
+    const err = parseJson(userState.error as string ?? "", {});
     if (err?.getUserInfo) {
       // Logout user if getUserInfo fails
       console.log(`Logging out because: ${err.getUserInfo}`);

@@ -1,6 +1,6 @@
 // ClientApp/src/store.tsx
 
-import { configureStore } from "@reduxjs/toolkit";
+import {configureStore} from "@reduxjs/toolkit";
 import errorReducer from "./reducers/errorReducer.jsx";
 import authReducer from "./features/auth/authSlice.jsx";
 import messageReducer from "./features/messageSlice";
