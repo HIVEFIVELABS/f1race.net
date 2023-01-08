@@ -1,4 +1,4 @@
-// Home.jsx
+// Path: ClientApp/src/screens/front/Home.jsx
 
 import React from "react";
 import { useSocketIO } from "../../features/socket/SocketContext.jsx";

@@ -1,4 +1,4 @@
-// ./screens/front/MainScreen.jsx
+// Path: ClientApp/src/screens/front/MainScreen.jsx
 
 import React from "react";
 import StickyHeader from "../../components/header/StickyHeader.jsx";
